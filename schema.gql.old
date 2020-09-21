@@ -1,0 +1,28 @@
+enum SiteType {
+  WEBAPP
+}
+
+enum BlockType {
+  MAIN
+  FEATURES
+}
+
+type Site {
+  name: String!
+  type: SiteType
+  color: [String]
+  fontFamily: String!
+  blocks: [Block] @relation
+}
+
+type Block {
+  type: BlockType
+  name: String! 
+  props: String! #JSON
+  site: Site
+}
+
+type Query {
+  allSites: [Site]
+  allBlocks:[Block]
+}
