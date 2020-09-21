@@ -97,16 +97,21 @@ const IndexPage = (props: any) => {
       </div>
       <div className="flex flex-row-reverse p-4 items-center">
         <button onClick={() => {
-          setInputStatus(false)
-          const urlParam: string = encodeURIComponent(cryptContent(content, password))
-          // console.log('length', urlParam.length)
-          setCryptResult(`${window.location.origin}/?s=${urlParam}`)
+          
+          if (content.length > 0, password.length > 0) {
+            const urlParam: string = encodeURIComponent(cryptContent(content, password))
+            setCryptResult(`${window.location.origin}/?s=${urlParam}`)
+            setInputStatus(false)
+          } else {
+            GlobalMsg.show({ message: "请输入加密内容或密码" })
+          }
+
         }} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" >创建加密链接</button>
       </div>
       <div className="flex p-4 items-center ">
         <TextField className=" py-4" type='text' value={cryptResult} disabled />
         {
-          !inputStatus ? <button  onClick={() => {
+          !inputStatus ? <button onClick={() => {
             copy(cryptResult)
             GlobalMsg.show({ message: "复制成功?!" })
           }} className="bg-green-500 hover:bg-green-400 font-bold w-1/4 h-8  mx-1 rounded text-white">复制</button> : <></>
