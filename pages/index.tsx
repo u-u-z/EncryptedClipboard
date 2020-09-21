@@ -105,7 +105,9 @@ const IndexPage = (props: any) => {
       <hr className="mt-8" />
       <div className="p-4  ">
         <p className="text-center text-sm text-gray-400">
-          加密剪贴板 ❤ <a href="https://uui.cool/" target="_blank">UUI</a> &nbsp; |&nbsp; <a href="https://linux.dog/" target="_blank">RemiIO&lt;i@remi.email&gt;</a>
+          加密剪贴板 ❤ <a href="https://uui.cool/" target="_blank">UUI</a> &nbsp; 
+          |&nbsp; <a href="https://linux.dog/" target="_blank">RemiIO&lt;i@remi.email&gt;</a> &nbsp;|&nbsp;
+          项目测试中 ··· 临时域名 
         </p>
       </div>
 
