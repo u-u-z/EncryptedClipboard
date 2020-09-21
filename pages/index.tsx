@@ -38,7 +38,7 @@ const IndexPage = (props: any) => {
     </Head>
     <Dialog open={decryptDialogStatus} focusTrap={true} >
       <div style={{
-        width: 400,
+        width: 260,
         height: 150
       }}>
         <h1 style={{ marginTop: 0 }}>解密你的剪贴板</h1>
