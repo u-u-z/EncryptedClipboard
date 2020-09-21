@@ -1,9 +1,0 @@
-type WebSite {
-  uuid: String!
-  info: String!
-  model: String!
-}
-
-type Query {
-  findWebSiteByUUID(uuid: String!): WebSite
-}
