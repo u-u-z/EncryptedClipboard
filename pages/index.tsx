@@ -32,6 +32,7 @@ const IndexPage = (props: any) => {
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta name="keywords" content="加密剪贴板,在线剪贴板,在线加密剪贴板" />
       <meta name="description" content="一个在线加密剪贴板" />
+      <link rel="icon" href="/logo.jpg" sizes="357x357" type="image/jpeg"></link>
       {/* <link rel="icon" href="/kc-icon.png" sizes="512x512" type="image/png"></link> */}
     </Head>
     <Dialog open={decryptDialogStatus} focusTrap={true} >
