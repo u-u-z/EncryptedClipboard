@@ -103,12 +103,12 @@ const IndexPage = (props: any) => {
         }} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" >创建加密链接</button>
       </div>
       <div className="flex p-4 items-center ">
-        <TextField className="appearance-none py-4" type='text' value={cryptResult} disabled />
+        <TextField className=" py-4" type='text' value={cryptResult} disabled />
         {
-          !inputStatus ? <Button onClick={() => {
+          !inputStatus ? <button  onClick={() => {
             copy(cryptResult)
             GlobalMsg.show({ message: "复制成功?!" })
-          }} className="flex-shrink-0 px-6 mx-1">复制</Button> : <></>
+          }} className="bg-green-500 hover:bg-green-400 font-bold w-1/4 h-8  mx-1 rounded text-white">复制</button> : <></>
         }
       </div>
       <hr className="mt-8" />
