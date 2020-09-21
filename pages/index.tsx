@@ -51,9 +51,8 @@ const IndexPage = (props: any) => {
             setContent(AES.decrypt(props.cryptBase64, password).toString(cryptoUtf8))
             setDecryptDialogStatus(value => { return !value })
           } catch (e) {
-
+            GlobalMsg.show({ message: "解密失败，可能是链接不完整！" })
           }
-
         }}>
           解密
         </Button>
@@ -64,7 +63,6 @@ const IndexPage = (props: any) => {
         }}>
           关闭
         </Button>
-
       </div>
     </Dialog>
     <div className="bg-gray-200">
@@ -93,7 +91,7 @@ const IndexPage = (props: any) => {
           const urlParam: string = encodeURIComponent(cryptContent(content, password))
           // console.log('length', urlParam.length)
           setCryptResult(`${window.location.origin}/?s=${urlParam}`)
-        }} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" >创建链接</button>
+        }} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" >创建加密链接</button>
       </div>
       <div className="flex p-4 items-center ">
         <TextField className="appearance-none py-4" type='text' value={cryptResult} disabled />
