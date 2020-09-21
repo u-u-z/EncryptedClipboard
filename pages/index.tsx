@@ -102,7 +102,15 @@ const IndexPage = (props: any) => {
           }} className="flex-shrink-0 px-6 mx-1">复制</Button> : <></>
         }
       </div>
+      <hr className="mt-8" />
+      <div className="p-4  ">
+        <p className="text-center text-sm text-gray-400">
+          加密剪贴板 ❤ <a href="https://uui.cool/" target="_blank">UUI</a> &nbsp; |&nbsp; <a href="https://linux.dog/" target="_blank">RemiIO&lt;i@remi.email&gt;</a>
+        </p>
+      </div>
+
     </div>
+
   </div>
 }
 
