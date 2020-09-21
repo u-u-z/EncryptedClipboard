@@ -18,6 +18,7 @@ const IndexPage = (props: any) => {
   const [inputStatus, setInputStatus] = useState(true);
   const [cryptResult, setCryptResult] = useState("项目开源在 github.com/u-u-z/EncryptedClipboard")
   const [decryptDialogStatus, setDecryptDialogStatus] = useState(beforeDecryptDialogStatus);
+  const [resultError, setResultError] = useState(false);
   useEffect(() => {
     if (inputStatus === false) {
       setInputStatus(true)
@@ -42,14 +43,21 @@ const IndexPage = (props: any) => {
         <TextField type='password' value={password} showPasswordVisibleButton onChange={(value: string) => {
           setPassword(value);
         }} placeholder={'请输入解密密码'} />
+        {resultError ? <p className="text-sm text-red-500 mt-2">密码错误/链接不完整/内容为空</p> : <></>}
       </div>
       <div className="flex flex-row justify-end">
         <Button className="bg-red-500" styling={{
           type: 'primary'
         }} onClick={() => {
           try {
-            setContent(AES.decrypt(props.cryptBase64, password).toString(cryptoUtf8))
-            setDecryptDialogStatus(value => { return !value })
+            const decryptContent = AES.decrypt(props.cryptBase64, password).toString(cryptoUtf8)
+            if (decryptContent) {
+              setContent(AES.decrypt(props.cryptBase64, password).toString(cryptoUtf8))
+              setDecryptDialogStatus(value => { return !value })
+            } else {
+              setResultError(true)
+            }
+
           } catch (e) {
             GlobalMsg.show({ message: "解密失败，可能是链接不完整！" })
           }
@@ -105,9 +113,9 @@ const IndexPage = (props: any) => {
       <hr className="mt-8" />
       <div className="p-4  ">
         <p className="text-center text-sm text-gray-400">
-          加密剪贴板 ❤ <a href="https://uui.cool/" target="_blank">UUI</a> &nbsp; 
+          加密剪贴板 ❤ <a href="https://uui.cool/" target="_blank">UUI</a> &nbsp;
           |&nbsp; <a href="https://linux.dog/" target="_blank">RemiIO&lt;i@remi.email&gt;</a> &nbsp;|&nbsp;
-          项目测试中 ··· 临时域名 
+          项目测试中 ··· 临时域名
         </p>
       </div>
 
