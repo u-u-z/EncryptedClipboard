@@ -1,62 +1,22 @@
-# TypeScript Next.js example
+# Seclip
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+一个在线加密内容、生成链接分享的工具，可以用来发服务器密码之类的。
 
-## Deploy your own
+来瞧瞧：https://seclip.remi.fun/
 
-Deploy the example using [Vercel](https://vercel.com):
+## 搞这个干啥
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/vercel/next.js/tree/canary/examples/with-typescript)
+因为一次业务救火，用微信转发服务器密码，感觉这么做有点智障 ··· 又因为太笨不知道类似 p.miv.im 这类应用的存在，于是自己写了一个 ···
 
-## How to use it?
+## 这个安全么？
 
-### Using `create-next-app`
+正确的使用对称加密，大概比较安全吧，（只要人不傻）。
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+加密是直接通过 AES 生成的 url，使用了 `crypto-js` 库。密文都在 url 上，对称加密密钥不丢失就不会泄露 ···
 
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-# or
-yarn create next-app --example with-typescript with-typescript-app
-```
+## 之后想添加的功能
 
-### Download manually
+- [ ] 压缩密文 base64？
+- [ ] 短网址？
+- [ ] ···
 
-Download the example:
-
-```bash
-curl https://codeload.github.com/vercel/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/with-typescript
-cd with-typescript
-```
-
-Install it and run:
-
-```bash
-npm install
-npm run dev
-# or
-yarn
-yarn dev
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-## Notes
-
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
-
-```
-npm install --save-dev typescript
-```
-
-To enable TypeScript's features, we install the type declarations for React and Node.
-
-```
-npm install --save-dev @types/react @types/react-dom @types/node
-```
-
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
-
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
-
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
